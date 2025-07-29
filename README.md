@@ -11,7 +11,7 @@ Quick start
 -----------
 
 ```
-$ qmake-qt5
+$ qmake-qt5 or qmake
 $ make
 $ ./linnwt app_en.qm
 ```

@@ -1012,7 +1012,7 @@ Nwt7linux::Nwt7linux(QWidget *parent) : QTabWidget(parent)
   //zur besseren Optik das Grafikfenster spaet sichtbar machen
   grafik->show();
   // Tabumschalten steuern
-  QObject::connect( this, SIGNAL(currentChanged ( QWidget * )), this, SLOT(tabumschalten( QWidget* )));
+  QObject::connect( this, SIGNAL(currentChanged (int)), this, SLOT(tabumschalten(int)));
   //Idletimer ist fuer die Kontaktaufnahme mit dem NWT
   idletimer->start(wgrunddaten.idletime);
   wgrunddaten.bfliessend = true;
@@ -6926,7 +6926,8 @@ void Nwt7linux::resizeEvent( QResizeEvent * ){
 }
 */
 
-void Nwt7linux::tabumschalten( QWidget *wg ){
+void Nwt7linux::tabumschalten(int index){
+  QWidget * wg = this->widget(index);
   if(wg != wdiagramm){
     setBetriebsart(betriebsart->currentIndex());
   }
